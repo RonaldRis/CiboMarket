@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CiboMarket.Views.TabbedMain.PerfilVistas.DireccionesPage"
+             Title="Direcciones">
+    <ContentPage.Content>
+        <StackLayout Orientation="Vertical" VerticalOptions="Center" Padding="5" x:Name="mainstack">
+            <Grid HeightRequest="200">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="55*"/>
+                    <ColumnDefinition Width="25*"/>
+                    <ColumnDefinition Width="20*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="60*"/>
+                    <RowDefinition Height="25*"/>
+                    <RowDefinition Height="15*"/>
+                </Grid.RowDefinitions>
+                <Image  Source="location.png"
+                        HeightRequest="200"
+                        HorizontalOptions="Center"
+                        VerticalOptions="Center"
+                        Grid.Column="0"
+                        Grid.ColumnSpan="3"
+                        Grid.Row="0"
+                        Grid.RowSpan="3"/>
+
+                <ImageButton Source="addbutton.png" 
+                         VerticalOptions="Center"
+                         HorizontalOptions="Center"
+                         HeightRequest="75"
+                         BackgroundColor="Transparent"
+                         x:Name="Btn2"
+                         Clicked="Btn2_Clicked"
+                         Grid.Column="1"
+                         Grid.Row="1"/>
+            </Grid>
+            <Label Text="No hay ubicaciones registradas"
+                  x:Name="lbl1"
+                   FontSize="Medium"
+                   HorizontalOptions="Center"/>
+            <Label Text="Ingresa una direccion"
+                   x:Name="lbl2"
+                    FontSize="Small"
+                   HorizontalOptions="Center"/>
+            
+            
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

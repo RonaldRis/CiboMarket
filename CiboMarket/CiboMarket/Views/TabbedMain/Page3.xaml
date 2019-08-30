@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CiboMarket.Views.TabbedMain.Page3"
+             
+             Title="Perfil"
+             xmlns:VISTAS="clr-namespace:CiboMarket.ViewModels"
+             Icon="Profile.png"
+             >
+    <ContentPage.Content>
+        <StackLayout>
+            <Grid Margin="5,10,5,10">
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40*"/>
+                    <RowDefinition Height="30*"/>
+                    <RowDefinition Height="30*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="30*"/>
+                    <ColumnDefinition Width="70*"/>
+                </Grid.ColumnDefinitions>
+
+                <Image  Source="UserPicture.png"
+                        HorizontalOptions="Center"
+                        VerticalOptions="Center"
+                        HeightRequest="70"
+                        Grid.Row="0"
+                        Grid.RowSpan="3"
+                        Grid.Column="0"
+                        />
+
+                <Label Text="Bienvenido a Cibo"
+                       FontSize="12"
+                       HorizontalOptions="Start"
+                       VerticalOptions="Center"
+                       Grid.Row="1"
+                       Grid.Column="1"/>
+                <Label Text="Hola"
+                       x:Name="txtNombre"
+                       FontAttributes="Bold"
+                       FontSize="18"
+                       HorizontalOptions="Start"
+                       VerticalOptions="Center"
+                       Grid.Row="0"
+                       Grid.Column="1"/>
+
+                <Label x:Name="txtUsername"
+                       FontSize="12"
+                       HorizontalOptions="Start"
+                       VerticalOptions="Center"
+                       Grid.Row="2"
+                       Grid.Column="1"/>
+
+            </Grid>
+            <ScrollView>
+                <StackLayout>
+                    <Label Text="¡Comenzemos con tu perfil!"
+                           FontAttributes="Bold"
+                           FontSize="19"
+                           HorizontalOptions="Center"/>
+                    <Button Text="Completar mi Perfil"
+                            TextColor="White"
+                            BackgroundColor="{StaticResource CCDarkCyan}"
+                            Margin="15"
+                            BorderRadius="20"
+                            Clicked="Button_Clicked"
+                            />
+                    <ListView HeightRequest="220"
+                        x:Name="ItemsListView"
+                        ItemsSource="{Binding Items}"
+                        HasUnevenRows="True" 
+                        RefreshCommand="{Binding LoadItemsCommand}"
+                        IsPullToRefreshEnabled="True"
+                        IsRefreshing="{Binding IsBusy,Mode=OneWay}"
+                        ItemSelected="OnItemSelected"
+                                >
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <StackLayout Padding="8"
+                                                 Orientation="Horizontal"
+                                                 HorizontalOptions="Fill"
+                                                 >
+
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="20*"/>
+                                                <ColumnDefinition Width="80*"/>
+                                            </Grid.ColumnDefinitions>
+                                        </Grid>
+                                        <Image Source="{Binding Img}"
+                                               VerticalOptions="Center"
+                                               HeightRequest="15"
+                                               Grid.Column="0"
+                                               Margin="0,0,20,0"
+                                               />
+                                        <StackLayout Grid.Column="1" >
+                                            <Label Text="{Binding Label1}"
+                                               FontAttributes="Bold"
+                                               FontSize="14"
+                                               HorizontalOptions="Start"/>
+                                            <Label Text="{Binding Label2}"
+                                               FontAttributes="Bold"
+                                               FontSize="10"
+                                               HorizontalOptions="Start"/>
+                                        </StackLayout>
+                                    </StackLayout>
+
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                    <StackLayout>
+                        <Button
+                            TextColor="White"
+                            BackgroundColor="{StaticResource CCDarkCyan}"
+                            Margin="5"
+                            BorderRadius="20"
+                            Text="Cerrar Sesión"
+                            HorizontalOptions="Center"
+                            VerticalOptions="Center"
+                            Clicked="CerrarSesion" />
+                    </StackLayout>
+
+                </StackLayout>
+            </ScrollView>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

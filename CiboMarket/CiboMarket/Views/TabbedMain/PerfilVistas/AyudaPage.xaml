@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CiboMarket.Views.TabbedMain.PerfilVistas.AyudaPage"
+             Title="Ayuda"
+             >
+    <ContentPage.Content>
+        <StackLayout>
+            <Image  Source="help2.png"
+                HeightRequest="200"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"/>
+            <ListView ItemsSource="{Binding All}"
+                      RowHeight="60" ItemSelected="OnItemSelected">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Padding="8"
+                                                 Orientation="Horizontal"
+                                                 HorizontalOptions="Fill"
+                                                 >
+                                <Label Text="{Binding Label1}"
+                                               FontAttributes="Bold"
+                                               FontSize="14"
+                                               HorizontalOptions="Start"/>
+
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

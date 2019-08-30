@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<MasterDetailPage   xmlns="http://xamarin.com/schemas/2014/forms"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                    xmlns:local="clr-namespace:CiboMarket"
+                    x:Class="CiboMarket.MainPage"
+                    xmlns:pagina="clr-namespace:CiboMarket.Views.TabbedMain"
+                    xmlns:views="clr-namespace:CiboMarket.Views"
+                    xmlns:Android ="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
+                    Title="CiboMarket"
+                    NavigationPage.HasBackButton="True"
+                  >
+
+    <MasterDetailPage.Master>
+        <views:PlatillosPedidosPage/>
+    </MasterDetailPage.Master>
+
+    <MasterDetailPage.Detail>
+        <TabbedPage>
+            <pagina:Page1/>
+            <!--<pagina:Page2/>
+            <pagina:Page3/>-->
+        </TabbedPage>
+    </MasterDetailPage.Detail>
+
+
+
+</MasterDetailPage>

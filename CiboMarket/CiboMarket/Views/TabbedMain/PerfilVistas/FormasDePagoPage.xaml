@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CiboMarket.Views.TabbedMain.PerfilVistas.FormasDePagoPage"
+             Title="Formas de Pago">
+    <ContentPage.Content>
+        <StackLayout Orientation="Vertical" VerticalOptions="Center">
+            <Grid HeightRequest="200">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="55*"/>
+                    <ColumnDefinition Width="25*"/>
+                    <ColumnDefinition Width="20*"/>
+                </Grid.ColumnDefinitions>
+               <Grid.RowDefinitions>
+                    <RowDefinition Height="60*"/>
+                    <RowDefinition Height="25*"/>
+                    <RowDefinition Height="15*"/>
+                </Grid.RowDefinitions>
+               
+                <Image  Source="card.png"
+                        HeightRequest="200"
+                        HorizontalOptions="Center"
+                        VerticalOptions="Center"
+                        Grid.Column="0"
+                        Grid.ColumnSpan="3"
+                        Grid.Row="0"
+                        Grid.RowSpan="3"/>
+                <ImageButton Source="addbutton.png" 
+                         BackgroundColor="Transparent"
+                         VerticalOptions="Center"
+                         HorizontalOptions="Center"
+                         HeightRequest="75"
+                         x:Name="Btn1"
+                         Clicked="Btn1_Clicked"
+                         Grid.Column="1"
+                         Grid.Row="1"/>
+            </Grid>
+            <Label Text="No hay formas de pago registradas"
+                   FontSize="Medium"
+                   HorizontalOptions="Center"/>
+            <Label Text="Agrega tu forma de pago"
+                   FontSize="Medium"
+                   HorizontalOptions="Center"/>
+            
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

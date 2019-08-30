@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CiboMarket.Views.TabbedMain.PerfilVistas.Tarjetasdepago"
+             Title="Seleccion de forma de pago">
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout Margin="5">
+                <Label Text="Seleccione una opcion"
+                       FontAttributes="Bold"
+                       HorizontalOptions="Start" VerticalOptions="Start"
+                       FontSize="17"/>
+               
+            </StackLayout>
+            <ListView
+            HasUnevenRows="True"
+            ItemsSource="{Binding Items}"
+            ItemTapped="ListView_ItemTapped">
+           
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell Height="100">
+                        <StackLayout>
+                            <Image Source="{Binding Img }"
+                                   HeightRequest="75"
+                                   HorizontalOptions="Fill"
+                                   Margin="20"/>
+
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
