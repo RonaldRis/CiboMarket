@@ -14,7 +14,7 @@ namespace SomeeAPI.Controllers
 {
     public class usuariosController : ApiController
     {
-        private cibodbxamarinfinalEntities db = new cibodbxamarinfinalEntities();
+        private Entities db = new Entities();
 
         // GET: api/usuarios
         public IQueryable<usuario> Getusuario()

@@ -198,7 +198,10 @@ GO
 -- --------------------------------------------------
 -- Creating all FOREIGN KEY constraints
 -- --------------------------------------------------
-
+ALTER TABLE platillos
+ADD CONSTRAINT FK_platillos_restaurante
+    FOREIGN KEY (idRes)
+    REFERENCES restaurante (idRes);
 -- --------------------------------------------------
 -- Script has ended
 -- --------------------------------------------------

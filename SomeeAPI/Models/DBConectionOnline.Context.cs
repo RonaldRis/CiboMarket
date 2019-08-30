@@ -13,10 +13,10 @@ namespace SomeeAPI.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class cibodbxamarinfinalEntities : DbContext
+    public partial class Entities : DbContext
     {
-        public cibodbxamarinfinalEntities()
-            : base("name=cibodbxamarinfinalEntities")
+        public Entities()
+            : base("name=Entities")
         {
         }
     

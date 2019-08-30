@@ -9,8 +9,8 @@ namespace CiboMarket.Services
     using System.Threading.Tasks;
     public class Rest
     {
-        string url = "http://127.0.0.1:52501/Api";
-        //string url = "http://cibomarket.somee.com/api/";
+        //string url = "http://127.0.0.1:52501/Api";
+        string url = "http://cibomarket.somee.com/api/";
 
         HttpClient client;
 

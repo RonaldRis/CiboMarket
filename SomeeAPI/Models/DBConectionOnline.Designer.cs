@@ -1,4 +1,4 @@
-﻿// La generación de código T4 está habilitada para el modelo 'C:\Users\CDS12\source\repos\CiboMarket\SomeeAPI\Models\Cibo_Some_DBContext.edmx'. 
+﻿// La generación de código T4 está habilitada para el modelo 'C:\Users\CDS12\source\repos\CiboMarket\SomeeAPI\Models\DBConectionOnline.edmx'. 
 // Para habilitar la generación de código heredada, cambie el valor de la propiedad del diseñador 'Estrategia de generación de código'
 // por 'ObjectContext heredado'. Esta propiedad está disponible en la ventana Propiedades cuando se abre
 // el modelo en el diseñador.

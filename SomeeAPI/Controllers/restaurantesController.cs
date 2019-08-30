@@ -14,7 +14,7 @@ namespace SomeeAPI.Controllers
 {
     public class restaurantesController : ApiController
     {
-        private cibodbxamarinfinalEntities db = new cibodbxamarinfinalEntities();
+        private Entities db = new Entities();
 
         // GET: api/restaurantes
         public IQueryable<restaurante> Getrestaurante()

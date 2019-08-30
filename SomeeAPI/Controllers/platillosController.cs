@@ -14,7 +14,7 @@ namespace SomeeAPI.Controllers
 {
     public class platillosController : ApiController
     {
-        private cibodbxamarinfinalEntities db = new cibodbxamarinfinalEntities();
+        private Entities db = new Entities();
 
         // GET: api/platillos
         public IQueryable<platillos> Getplatillos()

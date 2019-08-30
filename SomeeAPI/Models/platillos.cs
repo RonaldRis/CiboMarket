@@ -23,5 +23,7 @@ namespace SomeeAPI.Models
         public string categoria { get; set; }
         public Nullable<int> cant { get; set; }
         public Nullable<float> subtotal { get; set; }
+    
+        public virtual restaurante restaurante { get; set; }
     }
 }
