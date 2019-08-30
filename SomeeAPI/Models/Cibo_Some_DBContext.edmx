@@ -1,0 +1,391 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="cibodbxamarinfinalModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="direcciones">
+          <Key>
+            <PropertyRef Name="idDir" />
+          </Key>
+          <Property Name="idDir" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="lon" Type="int" />
+          <Property Name="lat" Type="int" />
+          <Property Name="idUser" Type="int" />
+          <Property Name="nombre" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="pedidos">
+          <Key>
+            <PropertyRef Name="idPedido" />
+          </Key>
+          <Property Name="idPedido" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idUser" Type="int" />
+          <Property Name="idRepartidor" Type="int" />
+          <Property Name="fecha" Type="datetime" />
+          <Property Name="hora" Type="time" Precision="7" />
+          <Property Name="total" Type="real" />
+          <Property Name="xlat" Type="real" />
+          <Property Name="ylat" Type="real" />
+          <Property Name="comentarios" Type="varchar" MaxLength="200" />
+          <Property Name="estado" Type="varchar" MaxLength="30" />
+          <Property Name="puntajeServicio" Type="real" />
+          <Property Name="metodoPago" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="platillos">
+          <Key>
+            <PropertyRef Name="idPlatillo" />
+          </Key>
+          <Property Name="idPlatillo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idRes" Type="int" />
+          <Property Name="nombre" Type="varchar" MaxLength="40" />
+          <Property Name="descp" Type="varchar" MaxLength="150" />
+          <Property Name="price" Type="real" />
+          <Property Name="imgPath" Type="varchar" MaxLength="150" />
+          <Property Name="categoria" Type="varchar" MaxLength="50" />
+          <Property Name="cant" Type="int" />
+          <Property Name="subtotal" Type="real" />
+        </EntityType>
+        <EntityType Name="platillosPedidos">
+          <Key>
+            <PropertyRef Name="idPlatPed" />
+          </Key>
+          <Property Name="idPlatPed" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idPed" Type="int" />
+          <Property Name="idPlat" Type="int" />
+          <Property Name="cant" Type="int" />
+          <Property Name="subtotal" Type="real" />
+        </EntityType>
+        <EntityType Name="repartidor">
+          <Key>
+            <PropertyRef Name="idRepartidor" />
+          </Key>
+          <Property Name="idRepartidor" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="username" Type="varchar" MaxLength="30" />
+          <Property Name="nombre" Type="varchar" MaxLength="30" />
+          <Property Name="apellido" Type="varchar" MaxLength="30" />
+          <Property Name="pass" Type="varchar" MaxLength="30" />
+          <Property Name="numTelefono" Type="varchar" MaxLength="20" />
+          <Property Name="salarioAcumulado" Type="real" />
+        </EntityType>
+        <EntityType Name="restaurante">
+          <Key>
+            <PropertyRef Name="idRes" />
+          </Key>
+          <Property Name="idRes" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="30" />
+          <Property Name="rating" Type="real" />
+          <Property Name="imgLogo" Type="varchar" MaxLength="150" />
+          <Property Name="xlat" Type="real" />
+          <Property Name="ylon" Type="real" />
+          <Property Name="descp" Type="varchar" MaxLength="200" />
+          <Property Name="horaS" Type="varchar" MaxLength="15" />
+          <Property Name="horaE" Type="varchar" MaxLength="15" />
+          <Property Name="imgLaye" Type="varchar" MaxLength="150" />
+          <Property Name="pass" Type="varchar" MaxLength="30" />
+          <Property Name="PersonaEncargada" Type="varchar" MaxLength="40" />
+          <Property Name="NumTelefono" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="sucursales">
+          <Key>
+            <PropertyRef Name="idSucursal" />
+          </Key>
+          <Property Name="idSucursal" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idRestaurante" Type="int" />
+          <Property Name="nombre_sucursal" Type="varchar" MaxLength="70" />
+          <Property Name="departamento" Type="varchar" MaxLength="16" />
+          <Property Name="municipio" Type="varchar" MaxLength="30" />
+          <Property Name="lugar_referencia" Type="varchar" MaxLength="200" />
+          <Property Name="ylon" Type="real" />
+          <Property Name="xlat" Type="real" />
+          <Property Name="encargado" Type="varchar" MaxLength="50" />
+          <Property Name="password" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="usuario">
+          <Key>
+            <PropertyRef Name="idUser" />
+          </Key>
+          <Property Name="idUser" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="C_User" Type="varchar" MaxLength="20" />
+          <Property Name="nombre" Type="varchar" MaxLength="30" />
+          <Property Name="lastname" Type="varchar" MaxLength="30" />
+          <Property Name="pass" Type="varchar" MaxLength="30" />
+          <Property Name="NumTelefono" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityContainer Name="cibodbxamarinfinalModelStoreContainer">
+          <EntitySet Name="direcciones" EntityType="Self.direcciones" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="pedidos" EntityType="Self.pedidos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="platillos" EntityType="Self.platillos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="platillosPedidos" EntityType="Self.platillosPedidos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="repartidor" EntityType="Self.repartidor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="restaurante" EntityType="Self.restaurante" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sucursales" EntityType="Self.sucursales" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="usuario" EntityType="Self.usuario" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="cibodbxamarinfinalModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="direcciones">
+          <Key>
+            <PropertyRef Name="idDir" />
+          </Key>
+          <Property Name="idDir" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="lon" Type="Int32" />
+          <Property Name="lat" Type="Int32" />
+          <Property Name="idUser" Type="Int32" />
+          <Property Name="nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="pedidos">
+          <Key>
+            <PropertyRef Name="idPedido" />
+          </Key>
+          <Property Name="idPedido" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idUser" Type="Int32" />
+          <Property Name="idRepartidor" Type="Int32" />
+          <Property Name="fecha" Type="DateTime" Precision="3" />
+          <Property Name="hora" Type="Time" Precision="7" />
+          <Property Name="total" Type="Single" />
+          <Property Name="xlat" Type="Single" />
+          <Property Name="ylat" Type="Single" />
+          <Property Name="comentarios" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="estado" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="puntajeServicio" Type="Single" />
+          <Property Name="metodoPago" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="platillos">
+          <Key>
+            <PropertyRef Name="idPlatillo" />
+          </Key>
+          <Property Name="idPlatillo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idRes" Type="Int32" />
+          <Property Name="nombre" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="descp" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="price" Type="Single" />
+          <Property Name="imgPath" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="categoria" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="cant" Type="Int32" />
+          <Property Name="subtotal" Type="Single" />
+        </EntityType>
+        <EntityType Name="platillosPedidos">
+          <Key>
+            <PropertyRef Name="idPlatPed" />
+          </Key>
+          <Property Name="idPlatPed" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idPed" Type="Int32" />
+          <Property Name="idPlat" Type="Int32" />
+          <Property Name="cant" Type="Int32" />
+          <Property Name="subtotal" Type="Single" />
+        </EntityType>
+        <EntityType Name="repartidor">
+          <Key>
+            <PropertyRef Name="idRepartidor" />
+          </Key>
+          <Property Name="idRepartidor" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="username" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="nombre" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="apellido" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="pass" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="numTelefono" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="salarioAcumulado" Type="Single" />
+        </EntityType>
+        <EntityType Name="restaurante">
+          <Key>
+            <PropertyRef Name="idRes" />
+          </Key>
+          <Property Name="idRes" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="rating" Type="Single" />
+          <Property Name="imgLogo" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="xlat" Type="Single" />
+          <Property Name="ylon" Type="Single" />
+          <Property Name="descp" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="horaS" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="horaE" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="imgLaye" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="pass" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="PersonaEncargada" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="NumTelefono" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="sucursales">
+          <Key>
+            <PropertyRef Name="idSucursal" />
+          </Key>
+          <Property Name="idSucursal" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idRestaurante" Type="Int32" />
+          <Property Name="nombre_sucursal" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+          <Property Name="departamento" Type="String" MaxLength="16" FixedLength="false" Unicode="false" />
+          <Property Name="municipio" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="lugar_referencia" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="ylon" Type="Single" />
+          <Property Name="xlat" Type="Single" />
+          <Property Name="encargado" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="password" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="usuario">
+          <Key>
+            <PropertyRef Name="idUser" />
+          </Key>
+          <Property Name="idUser" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="C_User" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="nombre" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="lastname" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="pass" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="NumTelefono" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="cibodbxamarinfinalEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="direcciones" EntityType="Self.direcciones" />
+          <EntitySet Name="pedidos" EntityType="Self.pedidos" />
+          <EntitySet Name="platillos" EntityType="Self.platillos" />
+          <EntitySet Name="platillosPedidos" EntityType="Self.platillosPedidos" />
+          <EntitySet Name="repartidor" EntityType="Self.repartidor" />
+          <EntitySet Name="restaurante" EntityType="Self.restaurante" />
+          <EntitySet Name="sucursales" EntityType="Self.sucursales" />
+          <EntitySet Name="usuario" EntityType="Self.usuario" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="cibodbxamarinfinalModelStoreContainer" CdmEntityContainer="cibodbxamarinfinalEntities">
+          <EntitySetMapping Name="direcciones">
+            <EntityTypeMapping TypeName="cibodbxamarinfinalModel.direcciones">
+              <MappingFragment StoreEntitySet="direcciones">
+                <ScalarProperty Name="idDir" ColumnName="idDir" />
+                <ScalarProperty Name="lon" ColumnName="lon" />
+                <ScalarProperty Name="lat" ColumnName="lat" />
+                <ScalarProperty Name="idUser" ColumnName="idUser" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="pedidos">
+            <EntityTypeMapping TypeName="cibodbxamarinfinalModel.pedidos">
+              <MappingFragment StoreEntitySet="pedidos">
+                <ScalarProperty Name="idPedido" ColumnName="idPedido" />
+                <ScalarProperty Name="idUser" ColumnName="idUser" />
+                <ScalarProperty Name="idRepartidor" ColumnName="idRepartidor" />
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
+                <ScalarProperty Name="hora" ColumnName="hora" />
+                <ScalarProperty Name="total" ColumnName="total" />
+                <ScalarProperty Name="xlat" ColumnName="xlat" />
+                <ScalarProperty Name="ylat" ColumnName="ylat" />
+                <ScalarProperty Name="comentarios" ColumnName="comentarios" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+                <ScalarProperty Name="puntajeServicio" ColumnName="puntajeServicio" />
+                <ScalarProperty Name="metodoPago" ColumnName="metodoPago" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="platillos">
+            <EntityTypeMapping TypeName="cibodbxamarinfinalModel.platillos">
+              <MappingFragment StoreEntitySet="platillos">
+                <ScalarProperty Name="idPlatillo" ColumnName="idPlatillo" />
+                <ScalarProperty Name="idRes" ColumnName="idRes" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="descp" ColumnName="descp" />
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="imgPath" ColumnName="imgPath" />
+                <ScalarProperty Name="categoria" ColumnName="categoria" />
+                <ScalarProperty Name="cant" ColumnName="cant" />
+                <ScalarProperty Name="subtotal" ColumnName="subtotal" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="platillosPedidos">
+            <EntityTypeMapping TypeName="cibodbxamarinfinalModel.platillosPedidos">
+              <MappingFragment StoreEntitySet="platillosPedidos">
+                <ScalarProperty Name="idPlatPed" ColumnName="idPlatPed" />
+                <ScalarProperty Name="idPed" ColumnName="idPed" />
+                <ScalarProperty Name="idPlat" ColumnName="idPlat" />
+                <ScalarProperty Name="cant" ColumnName="cant" />
+                <ScalarProperty Name="subtotal" ColumnName="subtotal" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="repartidor">
+            <EntityTypeMapping TypeName="cibodbxamarinfinalModel.repartidor">
+              <MappingFragment StoreEntitySet="repartidor">
+                <ScalarProperty Name="idRepartidor" ColumnName="idRepartidor" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="apellido" ColumnName="apellido" />
+                <ScalarProperty Name="pass" ColumnName="pass" />
+                <ScalarProperty Name="numTelefono" ColumnName="numTelefono" />
+                <ScalarProperty Name="salarioAcumulado" ColumnName="salarioAcumulado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="restaurante">
+            <EntityTypeMapping TypeName="cibodbxamarinfinalModel.restaurante">
+              <MappingFragment StoreEntitySet="restaurante">
+                <ScalarProperty Name="idRes" ColumnName="idRes" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="rating" ColumnName="rating" />
+                <ScalarProperty Name="imgLogo" ColumnName="imgLogo" />
+                <ScalarProperty Name="xlat" ColumnName="xlat" />
+                <ScalarProperty Name="ylon" ColumnName="ylon" />
+                <ScalarProperty Name="descp" ColumnName="descp" />
+                <ScalarProperty Name="horaS" ColumnName="horaS" />
+                <ScalarProperty Name="horaE" ColumnName="horaE" />
+                <ScalarProperty Name="imgLaye" ColumnName="imgLaye" />
+                <ScalarProperty Name="pass" ColumnName="pass" />
+                <ScalarProperty Name="PersonaEncargada" ColumnName="PersonaEncargada" />
+                <ScalarProperty Name="NumTelefono" ColumnName="NumTelefono" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sucursales">
+            <EntityTypeMapping TypeName="cibodbxamarinfinalModel.sucursales">
+              <MappingFragment StoreEntitySet="sucursales">
+                <ScalarProperty Name="idSucursal" ColumnName="idSucursal" />
+                <ScalarProperty Name="idRestaurante" ColumnName="idRestaurante" />
+                <ScalarProperty Name="nombre_sucursal" ColumnName="nombre_sucursal" />
+                <ScalarProperty Name="departamento" ColumnName="departamento" />
+                <ScalarProperty Name="municipio" ColumnName="municipio" />
+                <ScalarProperty Name="lugar_referencia" ColumnName="lugar_referencia" />
+                <ScalarProperty Name="ylon" ColumnName="ylon" />
+                <ScalarProperty Name="xlat" ColumnName="xlat" />
+                <ScalarProperty Name="encargado" ColumnName="encargado" />
+                <ScalarProperty Name="password" ColumnName="password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="usuario">
+            <EntityTypeMapping TypeName="cibodbxamarinfinalModel.usuario">
+              <MappingFragment StoreEntitySet="usuario">
+                <ScalarProperty Name="idUser" ColumnName="idUser" />
+                <ScalarProperty Name="C_User" ColumnName="C_User" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="lastname" ColumnName="lastname" />
+                <ScalarProperty Name="pass" ColumnName="pass" />
+                <ScalarProperty Name="NumTelefono" ColumnName="NumTelefono" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
